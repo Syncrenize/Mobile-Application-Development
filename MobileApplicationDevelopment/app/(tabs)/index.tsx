@@ -1,6 +1,15 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
-// I added profile layout (image, name, course, bio) and applied styles - 04/26/2026
-export default function App() {
+export default function Index() {
+  // Custom greeting script - 05/01/2026
+
+const myName = "Fame";
+
+const greet = (name: string) => {
+  return `Hey ${name}, welcome to my app!`;
+};
+
+const classmates = ["Kiergee", "Patreece", "Shannyn", "Andee", "Trigie"]; 
+console.log(classmates.map(name => greet(name)));
   return (
 <View style={styles.container}>
   
@@ -18,7 +27,7 @@ export default function App() {
     </View>
   );
 }
-
+// I added profile layout (image, name, course, bio) and applied styles - 04/26/2026p
 const styles = StyleSheet.create({
   container: {
     flex: 1,
