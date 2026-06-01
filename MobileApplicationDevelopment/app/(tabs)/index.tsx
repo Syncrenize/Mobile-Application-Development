@@ -1,29 +1,34 @@
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TextInput, StyleSheet } from 'react-native';
 export default function Index() {
+  const [name, setName] = useState('');
   // Custom greeting script - 05/01/2026
 
-const myName = "Fame";
+  const myName = 'Fame';
 
-const greet = (name: string) => {
-  return `Hey ${name}, welcome to my app!`;
-};
+  const greet = (name: string) => {
+    return `Hey ${name}, welcome to my app!`;
+  };
 
-const classmates = ["Kiergee", "Patreece", "Shannyn", "Andee", "Trigie"]; 
-console.log(classmates.map(name => greet(name)));
+  const classmates = ['Kiergee', 'Patreece', 'Shannyn', 'Andee', 'Trigie'];
+  console.log(classmates.map((name) => greet(name)));
+
   return (
-<View style={styles.container}>
-  
-  <Image
-  source={require('../../assets/profile.jpg')}
-  style={styles.image}
-/>
+    <View style={styles.container}>
+      <Image
+        source={require('../../assets/profile.jpg')}
+        style={styles.image}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your name"
+        value={name}
+        onChangeText={setName}
+      />
 
-  <Text style={styles.name}>Fame Calonia</Text>
+      <Text style={styles.name}>{name || 'Fame Calonia'}</Text>
       <Text style={styles.course}>Multimedia Arts - CS126</Text>
-      <Text style={styles.bio}>
-        I create art and make entertainment
-      </Text>
-
+      <Text style={styles.bio}>I create art and make entertainment</Text>
     </View>
   );
 }
@@ -39,6 +44,15 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
     marginBottom: 20,
   },
   name: {
