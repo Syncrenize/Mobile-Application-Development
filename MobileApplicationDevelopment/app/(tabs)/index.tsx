@@ -26,7 +26,7 @@ export default function Index() {
         onChangeText={setName}
       />
 
-      <Text style={styles.name}>{name || 'Fame Calonia'}</Text>
+      <Text style={styles.name}>{name || 'Enter Your Name'}</Text>
       <Text style={styles.course}>Multimedia Arts - CS126</Text>
       <Text style={styles.bio}>I create art and make entertainment</Text>
     </View>
