@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, StyleSheet } from 'react-native';
+import { View, Text, Image, TextInput, StyleSheet, Button } from 'react-native';
 export default function Index() {
   const [name, setName] = useState('');
+  const [count, setCount] = useState(0);
   // Custom greeting script - 05/01/2026
-
   const myName = 'Fame';
 
   const greet = (name: string) => {
@@ -25,6 +25,32 @@ export default function Index() {
         value={name}
         onChangeText={setName}
       />
+      <Text style={styles.counter}>Count: {count}</Text>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          title="+"
+          onPress={() => setCount(count + 1)}
+        />
+
+        <Button
+          title="-"
+          onPress={() => setCount(count - 1)}
+        />
+
+        <Button
+          title="Reset"
+          onPress={() => setCount(0)}
+        />
+      </View>
+
+{count > 0 ? (
+  <Text>You are counting up! 🚀</Text>
+) : count < 0 ? (
+  <Text>Negative numbers! 📉</Text>
+) : (
+  <Text>Counter is reset. 🔄</Text>
+)}
 
       <Text style={styles.name}>{name || 'Enter Your Name'}</Text>
       <Text style={styles.course}>Multimedia Arts - CS126</Text>
@@ -53,6 +79,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+  counter: {
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 12,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '60%',
     marginBottom: 20,
   },
   name: {
